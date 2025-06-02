@@ -1,0 +1,25 @@
+{% extends 'home.html' %}
+
+{% block title %}Add Recipie{% endblock %}
+
+{% block content %}
+    <h1>Add Recipie</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <input type="text" name = 'recipie_name' value="{{recipie.recipie_name}}">
+        
+        
+        <textarea name="recipie_ingrediants" id="ingrediants">{{recipie.recipie_ingrediants}}</textarea>
+        
+        
+        
+        <textarea name="recipie_description" id="description" placeholder="Add Description">{{recipie.recipie_description}}</textarea>
+        
+
+        <label for="image">Select Image</label>
+        <input type="file" name="recipie_image">
+
+        <button type="submit">Update</button>
+    </form>
+{% endblock %}

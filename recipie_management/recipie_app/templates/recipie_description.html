@@ -1,0 +1,21 @@
+{% extends 'home.html' %}
+
+{% block title %}
+{{ recipie.recipie_name }}
+{% endblock %}
+
+{% block content %}
+
+<div class="desc-content">
+    <h1>{{ recipie.recipie_name }}</h1>
+    <img class = 'desc-img' src="{{ recipie.recipie_image.url }}" alt="{{ recipie.recipie_name }}">
+    <ul class="desc-ingrediants">
+        <h2>Ingredients:</h2>
+        {% for item in ingrediants %}
+        <li>{{item}}</li>
+        {% endfor %}
+    </ul>
+    <p class="desc-desc">{{ recipie.recipie_description }}</p>
+    <button><a href="{% url 'update_recipie' recipie.id %}">Edit</a></button>
+</div>
+{% endblock%}

@@ -1,0 +1,29 @@
+{% extends 'home.html' %}
+
+{% block title %}Add Recipie{% endblock %}
+
+{% block content %}
+    <h1>Add Recipie</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <label for="name">Enter the Recipie Name</label>
+        <input type="text" name = 'recipie_name' placeholder="Enter your text">
+        
+        
+        <label for="ingrediants">Add Inrediants</label>
+        <textarea name="recipie_ingrediants" id="ingrediants" placeholder="Add Ingrediants (Comma Seperated)"></textarea>
+        
+        
+        
+        <label for="description">Enter the Recipie Description</label>
+        <textarea name="recipie_description" id="description" placeholder="Add Description"></textarea>
+        
+
+        <label for="image">Select Image</label>
+        <input type="file" name="recipie_image">
+
+
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}
