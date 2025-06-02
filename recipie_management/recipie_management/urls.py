@@ -22,12 +22,12 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home, name = 'home'),
-    path('recipieView/', views.recipieView, name = 'recipieView'),
-    path('addRecipie/', views.add_recipie, name = 'addRecipie'),
-    path('<int:recipie_id>/', views.recipie_description, name = 'recipie_description'),
-    path('update/<int:recipie_id>/', views.update_recipie, name = 'update_recipie'),
-    path('delete/<int:recipie_id>/', views.delete_recipie, name = 'delete_recipie')
+    path('', views.home, name='home'),
+    path('recipieView/', views.recipieView, name='recipieView'),
+    path('addRecipie/', views.add_recipie, name='addRecipie'),
+    path('<int:recipie_id>/', views.recipie_description, name='recipie_description'),
+    path('update/<int:recipie_id>/', views.update_recipie, name='update_recipie'),
+    path('delete/<int:recipie_id>/', views.delete_recipie, name='delete_recipie')
 ]
 
-urlpatterns+=static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

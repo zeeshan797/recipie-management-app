@@ -3,16 +3,42 @@
     margin: 0;
     padding: 0;
 }
-
+body{
+    font-family: sans-serif;
+}
 nav{
     background-color: beige;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    padding: 10px;
+
 }
 
-nav>ul{
+.search-form{
+    width: 40%;
     display: flex;
-    gap: 20px;
+    flex-direction: row;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}   
+
+.search-form>input{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: white;
+    color: black;
+}
+
+.search-form>button{
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #007bff;
+    color: white;
 }
 
 nav>p{
@@ -20,13 +46,8 @@ nav>p{
     font-size: 20px;
     padding: 10px;
     margin: 10px;
-}
+    font-weight: bold;
 
-nav>ul>li{
-    list-style: none;
-    font-size: 20px;
-    padding: 10px;
-    margin: 10px;
 }
 
 .home_container{
@@ -69,29 +90,33 @@ nav>ul>li{
 }
 
 /* General form styling */
-form {
-    border: 2px solid black;
+.add-recipie-form{
+    /* border: 2px solid black; */
     border-radius: 8px;
     padding: 20px;
     width: 600px;  /* Set width */
     display: flex;
     flex-direction: column;
     gap: 15px; /* Adds spacing between elements */
-    background-color: #f9f9f9;
+    background-color: #fbf5f5;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Styling for labels */
-form label {
+.add-recipie-form label {
     font-size: 16px;
     font-weight: bold;
     color: #333;
 }
 
 /* Input fields and textarea */
-form input[type="text"],
-form textarea,
-form input[type="file"] {
+.add-recipie-form input[type="text"],
+.add-recipie-form textarea,
+.add-recipie-form input[type="file"] {
     width: 100%; /* Makes sure inputs take full width */
     padding: 10px;
     border: 1px solid #ccc;
@@ -101,18 +126,18 @@ form input[type="file"] {
 }
 
 /* Styling for textarea */
-form textarea {
+.add-recipie-form textarea {
     height: 100px; /* Gives enough space for description */
     resize: vertical; /* Allows resizing */
 }
 
 /* File input */
-form input[type="file"] {
+.add-recipie-form input[type="file"] {
     border: none;
 }
 
 /* Submit button styling */
-form button {
+.add-recipie-form button {
     background-color: #007bff;
     color: white;
     font-size: 16px;
@@ -123,7 +148,7 @@ form button {
     transition: 0.3s;
 }
 
-form button:hover {
+.add-recipie-form button:hover {
     background-color: #0056b3;
 }
 

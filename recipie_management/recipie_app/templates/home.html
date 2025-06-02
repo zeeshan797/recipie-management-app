@@ -10,21 +10,16 @@
 <body>
     <header>
         <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li>About</li>
-                <li>Contact</li>
-            </ul>
-            <p>RECIPIE MANAGEMENT</p>
+            <p><a href="{% url 'home' %}">RECIPIE MANAGEMENT</a></p>
         </nav>
     </header>
     {% block content %}
     <div class="home_container">
         <h1>Welcome To the Recipie Management System</h1>
-        <img id = 'logo' src="{% static 'images/recipie_logo.jpeg' %}" alt="">
+        <img id="logo" src="{% static 'images/recipie_logo.jpeg' %}" alt="">
         <div class="btn">
-            <button class = "add" ><a href="addRecipie/">Add Recipies</a></button> 
-            <button class = "view"><a href="recipieView/">Recipies</a></button>
+            <button class="add"><a href="{% url 'addRecipie' %}">Add Recipies</a></button> 
+            <button class="view"><a href="{% url 'recipieView' %}">Recipies</a></button>
         </div>
     </div>
     {% endblock %}

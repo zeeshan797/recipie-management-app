@@ -1,14 +1,26 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import *
+from django.db.models import Q
 
 # Create your views here.
+
 def home(request):
-    return render (request, 'home.html')
+    recipies = Recipie.objects.all()
+    context = {'recipies': recipies}
+    return render(request, 'home.html', context)
 
 def recipieView(request):
-    recipies = Recipie.objects.all()
-    context = {'recipies':recipies}
-    return render (request, 'recipie_view.html', context)
+    search_query = request.GET.get('search')
+    if search_query:
+        # Search in both recipe name and ingredients
+        recipies = Recipie.objects.filter(
+            Q(recipie_name__icontains=search_query) |
+            Q(recipie_ingrediants__icontains=search_query)
+        ).distinct()
+    else:
+        recipies = Recipie.objects.all()
+    context = {'recipies': recipies, 'search_query': search_query}
+    return render(request, 'recipie_view.html', context)
 
 def add_recipie(request):
     if request.method == 'POST':

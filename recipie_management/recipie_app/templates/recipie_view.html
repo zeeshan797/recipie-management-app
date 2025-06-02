@@ -3,18 +3,27 @@
 {% block title %} Recipie View {% endblock %}
 
 {% block content %}
-<div class="card-container">
-    {% for recipie in recipies %}
-        <div class="card">
-            <img src="{{ recipie.recipie_image.url }}" alt="{{ recipie.recipie_name }}">
-            <h3><a href="{% url 'recipie_description' recipie.id %}">{{ recipie.recipie_name }}</a></h3>
-            <div class="view-btn">
-                <button><a href="{% url 'update_recipie' recipie.id %}">Edit</a></button>
-                <button><a href="{% url 'delete_recipie' recipie.id %}">Delete</a></button>
-            </div>
-        </div>
-    {% endfor %}
+<div class="search-container">
+    <form class="search-form" action="{% url 'recipieView' %}" method="GET">
+        <input type="search" name="search" placeholder="Search by recipe name or ingredients..." value="{{ search_query|default:'' }}">
+        <button type="submit">Search</button>
+    </form>
 </div>
 
-
+<div class="card-container">
+    {% if recipies %}
+        {% for recipie in recipies %}
+            <div class="card">
+                <img src="{{ recipie.recipie_image.url }}" alt="{{ recipie.recipie_name }}">
+                <h3><a href="{% url 'recipie_description' recipie.id %}">{{ recipie.recipie_name }}</a></h3>
+                <div class="view-btn">
+                    <button><a href="{% url 'update_recipie' recipie.id %}">Edit</a></button>
+                    <button><a href="{% url 'delete_recipie' recipie.id %}">Delete</a></button>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No recipes found. Try a different search term.</p>
+    {% endif %}
+</div>
 {% endblock %}
